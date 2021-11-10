@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographers - Profil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-page-photographer">
+        <a href="./index.html"><img class="logo-fisheye-profil-page" src="./medias/logo.PNG" alt="Fisheye Home page" title="logo FishEye"></a>
+    </header>
+    <!-- Header profil photographes -->
+    <header id="photographersProfil" class="banner-profil-photographer">
+    </header>
+    <!-- Main content -->
+    <main class="main-content-photographer">
+        <section class="box-trier">
+            <p class="p-trier">
+                Trier par
+            </p>
+            <div class="dropdown">
+                <button class="dropbtn" id="dropdown-button">
+                  <a class="sort" href="#">Popularité</a>
+                  <img src="./medias/arrow-drop-btn.svg" alt="">
+                </button>
+                <div class="dropdown-content" id="myDropdown">
+                    <a class="sort" href="#">Date</a>
+                    <a class="sort" href="#">Titre</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- medias content -->
+        <section id="contentMedia" class="container-media">
+            
+        </section>
+        <!-- container lightbox -->
+
+        <!-- Compteur de likes -->
+        <div class="div-container-compteur">
+            <section class="container-compteur-likes">
+                <article class="box-compteur">
+                    <p id="totalNumbersLikes">
+                        297 081 <i id="like" class="fas fa-heart"></i>
+                    </p>
+                    <p>
+                        300€ / jour
+                    </p>
+                </article>
+            </section>
+        </div>
+        <!-- Formulaire de contact -->
+        <div class="bground">
+            <section class="content">
+                <span class="btn-close"></span>
+                <article id="form" class="contact-form">
+                    <form name="contact" action="photographers.html" method="get" onsubmit="return validate(event);" id="myForm">
+                        <h1 class="form-title">
+                            Contactez-moi
+                            <br> Mimi Keel
+                        </h1>
+                        <div class="formData">
+                            <label for="first-name">Prénom </label><br>
+                            <input class="text-control" type="text" id="first-name" name="first" minlength="2" /><br>
+                            <span id="first-name-error"></span>
+                        </div>
+                        <div class="formData">
+                            <label for="last-name">Nom </label><br>
+                            <input class="text-control" type="text" id="last-name" name="last" /><br>
+                            <span id="last-name-error"></span>
+                        </div>
+                        <div class="formData">
+                            <label for="email">E-mail </label><br>
+                            <input class="text-control" type="email" id="email" name="email" /><br>
+                            <span id="email-error"></span>
+                        </div>
+                        <div class="formData">
+                            <label for="text">Votre message </label><br>
+                            <input class="votre-message" type="text" id="email" name="email" size="40" maxlength="60" /><br>
+                            <span id="email-error"></span>
+                        </div>
+                        <button class="btn-submit" type="button" id="btn-submit">
+                            <input class="submit" type="submit" value="Envoyer">
+                        </button>
+                    </form>
+                </article>
+            </section>
+        </div>
+
+
+    </main>
+</body>
+<script type="module" src="./js/photographers/lightbox.js"></script>
+<script type="module" src="./js/photographers/form.js"></script>
+<script type="module" src="./js/photographers/dropdown.js"></script>
+<script type="module" src="/js/main.js" defer></script>
+
+</html>
+
+</html>
