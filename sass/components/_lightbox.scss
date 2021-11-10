@@ -1,0 +1,92 @@
+//// LightBox //// 
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(206, 206, 206, 0.9);
+    z-index:5000;
+    overflow: auto;
+    animation: lightboxIn 0.5s;
+    .lightbox__next, .lightbox__prev {
+        border: none;
+        background: url(../medias/arrow.svg) center center / 30px 48px no-repeat;
+        width: 50px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-top: -14px;
+        z-index: 5001;
+        opacity: 0.5;
+        cursor: pointer;
+        text-indent: -3000px;
+        transition: 0.3s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .lightbox__prev {
+        right: auto;
+        left: 0;
+    }
+    .lightbox__next {
+        transform:rotate(180deg)
+    }
+
+
+    .lightbox__close {
+        border: none;
+        cursor: pointer;
+        background: url(../medias/close.svg) center center / 42px 42px no-repeat transparent;
+        width: 42px;
+        height: 42px;
+        z-index: 5002;
+        position: fixed;
+        top: 20px;
+        right: 0;
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .lightbox__container img {
+        max-width: 100%;
+        width: 50%;
+        height: auto;
+        animation: lightboxIn 0.5s;
+    }
+    // responsive image lightbox
+    /*
+    @media  screen and (max-width:375px) {
+        .lightbox__container img {
+            max-width: 375px;
+            height: 250px;
+            animation: lightboxIn 0.5s;
+        }
+    }*/
+    .lightbox__container {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
+        margin-right: 50px;
+        min-height: 100vh;
+    }
+
+    .lightbox__loader {
+        height: 38px;
+        width: 38px;
+        opacity: 0.5;
+        background: url(../medias/loader.svg) center center no-repeat;
+    }
+
+    @keyframes lightboxIn {
+        from {opacity: 0;}
+        from {opacity: 1;}
+    } 
+}
+
