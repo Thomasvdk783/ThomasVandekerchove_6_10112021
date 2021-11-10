@@ -1,0 +1,106 @@
+//// Home Page ////
+
+main {
+    padding: 0px;
+    margin: 0px;
+}
+
+.profils-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1440px;
+    justify-content: space-around;
+}
+
+.fig-img-profil{
+    width: 50%;
+    border-radius:35px ;
+    img {
+        width: 250px;
+        height: 250px;
+        border-radius: 250px;
+        object-fit: cover;
+    } 
+}
+
+
+.card-profil {
+    text-align: center;
+    margin: 40px;
+    width: 25%;
+    .title-profil {
+        color: #d3573c;
+        font-size: 24px;
+        margin-bottom: 0px;
+    }
+    .content-info-profil {
+        .location-photographer{
+            font-size: 16px;
+            color: #901c1c;
+            margin:0px;
+            margin-top: 20px;
+        }
+        .phrase-intro-profil{
+            font-size: 14px;
+            margin:0px;
+            margin-top: 10px;
+        }
+        .tarif-photographe {
+            color: #525252;
+            font-weight: 500;
+            margin:0px;
+            margin-top: 10px;;
+        }
+    }
+}
+
+.ul-filtres-profil{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    .li-filtres-profil {
+        border: 1px solid rgba(177, 177, 177, 0.815);
+        border-radius: 25px;
+        padding: 0.3em 0.3em 0.3em;
+        color: #901c1c;
+        font-weight: 500;
+    }
+}
+
+li.actived {
+    background-color: #901C1C;
+    color: #fff!important;
+}
+
+
+// responsive 
+@media  screen and (max-width: 450px){
+        .profils-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 350px;
+            width: 100%;
+        }
+        .card-profil {
+            max-width: 350px;
+            margin: auto;
+            width: 100%;
+        }
+    }
+// Second part of responsiv design
+
+@media screen and (min-width: 450px) and (max-width:800px){
+    .profils-row {
+        max-width: 450px;
+        display: grid;
+        flex-wrap: wrap;
+    }
+    .card-profil {
+        width: 100%;
+    }
+}

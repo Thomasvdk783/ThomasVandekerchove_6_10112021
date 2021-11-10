@@ -1,0 +1,442 @@
+//// Photographers page design ////
+
+.header-page-photographer {
+    margin-top: 50px;
+    .logo-fisheye-profil-page {
+        width: 20%;
+    }
+}
+
+.banner-profil-photographer {
+    background-color: #fafafa;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .container-banner-profil-1 {
+        width: 50%;
+        .section1-banner-profil-photographer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 200px;
+            .h1-profil-photographer{
+                color: #d3573c;
+                font-size: 40px;
+            }
+            .btn-contact {
+                font-size: 24px;
+                font-weight: 500;
+                color: #fff;
+                background-color: #901c1c;
+                padding: 1.5rem 0.8rem 1.5rem 0.8rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+        .section2-banner-profil-photographer {
+            .p1 {
+                font-size: 18px;
+                color: #901c1c;
+            }
+            .p2 {
+                font-size: 16px;
+            }
+            .ul-tag-profil-page {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                padding-inline-start: 0;
+                margin: 0px;
+                .li-tags-profil-page {
+                    border: 1px solid rgba(177, 177, 177, 0.815);
+                    border-radius: 25px;
+                    padding: 0.3em 0.3em 0.3em;
+                    color: #901c1c;
+                    font-weight: 500;
+                    &:hover {
+                        color: #fafafa;
+                        background-color: #901c1c;
+                        border-color: #901c1c;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .container-banner-profil-2 {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        & img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: flex;
+            text-align: center;
+        }
+    }
+}
+
+// Main content photographer page
+.main-content-photographer {
+    margin: 50px 0px 50px 0px;
+    padding: 0;
+}
+
+
+// box trier 
+.box-trier {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    .p-trier {
+        margin-right: 15px;
+    }
+}
+
+// media content photographer
+.container-media {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1340px;
+    margin-left: -45px;
+    .section-media {
+        display: flex;
+        flex-direction: row;
+        width:auto;
+        gap: 45px;
+    }
+}
+
+// card media
+.card-media {
+    width: 416px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    figure {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        .img-card-media {
+            object-fit: cover;
+            width:416px;
+            height: 350px;
+            border-radius: 10px;
+        }
+        figcaption {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            color: #901c1c;
+            font-weight: 400;
+            width: 400px;
+            i {
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+video {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+// container compteur de likes et tarif 
+
+.div-container-compteur {
+   position: fixed;
+   margin: auto;
+   max-width: 1340px;
+   z-index: 3;
+   overflow: auto;
+   bottom: 0;
+   right:50px;
+    .container-compteur-likes {
+        width: 200px;
+        position: relative;
+        overflow:hidden;
+        background-color:#db8876;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 250;
+        overflow: hidden;
+        .box-compteur {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #000;
+            padding: 0px 10px 0px 10px;
+            overflow: hidden;
+            
+        }
+    }
+}
+
+@media screen and (max-width:650px) {
+    body {
+        max-width: 375px;
+    }
+    .header-page-photographer {
+        width:100%;
+        max-width: 375px;
+        .logo-fisheye-profil-page{
+            width:80%;
+            margin-left: 15px;
+        }
+    }
+
+    .banner-profil-photographer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width:375px;
+        padding: 0;
+        .container-banner-profil-1 {
+            width: 50%;
+            .section1-banner-profil-photographer {
+                width: auto;
+                .h1-profil-photographer {
+                    margin: 0px;
+                    margin-top: 10px;
+                    margin-left: 15px;
+                }
+            }
+            .section2-banner-profil-photographer {
+                .p1 , .p2 , .ul-profil-photographer {
+                    margin-left: 15px;
+                }
+                .ul-tag-profil-page {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    padding-inline-start: 0;
+                    margin-left: 15px;
+                }
+            }
+        }
+        .container-banner-profil-2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:50%;
+            & img {
+                width: 150px;
+                height: 150px;
+                border-radius: 100%;
+                object-fit: cover;
+                display: flex;
+                text-align: center;
+            }
+        }
+    }
+
+    // Box trier 
+    .box-trier {
+        display: none;
+    }
+
+    // button contacter
+    .box-btn-contact {
+        position: fixed;
+        max-width: 375px;
+        width: 100%;
+        bottom: 15px;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        .btn-contact{
+            position: relative;
+            padding: 0.5rem 0.8rem 0.5rem 0.8rem !important;
+            font-size: 16px!important;
+        }
+    }
+
+    .container-media {
+        width:100%;
+        margin-top: 50px;
+        display: flex;
+        flex-direction:column;
+        gap: 10px;
+        max-width: 375px;
+        margin-left: 0px;
+        .section-media {
+            width:80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width:auto;
+            gap: 20px;
+        }
+    }
+
+    .card-media {
+        max-width: 375px;
+        width: 90%;
+        cursor: pointer;
+        figure {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            margin: 0px;
+            .img-card-media {
+                object-fit: cover;
+                width: 100%;
+                height: 200px;
+                border-radius: 10px;
+            }
+            figcaption {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: auto;
+            }
+        }
+    }
+
+    .div-container-compteur {
+        display: none;
+    }
+}
+// Second part of responsive design
+@media screen and (max-width:650px) {
+    body {
+        max-width: 375px;
+    }
+    .header-page-photographer {
+        width:100%;
+        max-width: 375px;
+        .logo-fisheye-profil-page{
+            width:80%;
+            margin-left: 15px;
+        }
+    }
+
+    .banner-profil-photographer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width:375px;
+        padding: 0;
+        .container-banner-profil-1 {
+            width: 50%;
+            .section1-banner-profil-photographer {
+                width: auto;
+                .h1-profil-photographer {
+                    margin: 0px;
+                    margin-top: 10px;
+                    margin-left: 15px;
+                }
+            }
+            .section2-banner-profil-photographer {
+                .p1 , .p2 , .ul-profil-photographer {
+                    margin-left: 15px;
+                }
+                .ul-tag-profil-page {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    padding-inline-start: 0;
+                    margin-left: 15px;
+                }
+            }
+        }
+        .container-banner-profil-2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:50%;
+            & img {
+                width: 150px;
+                height: 150px;
+                border-radius: 100%;
+                object-fit: cover;
+                display: flex;
+                text-align: center;
+            }
+        }
+    }
+
+    // Box trier 
+    .box-trier {
+        display: none;
+    }
+
+    // button contacter
+    .box-btn-contact {
+        position: fixed;
+        max-width: 375px;
+        width: 100%;
+        bottom: 15px;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        .btn-contact{
+            position: relative;
+            padding: 0.5rem 0.8rem 0.5rem 0.8rem !important;
+            font-size: 16px!important;
+        }
+    }
+
+    .container-media {
+        width:100%;
+        margin-top: 50px;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        gap: 10px;
+        max-width: 375px;
+        margin-left: 0px;
+        .section-media {
+            width:80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width:auto;
+            gap: 20px;
+        }
+    }
+
+    .card-media {
+        max-width: 375px;
+        width: 90%;
+        cursor: pointer;
+        figure {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            margin: 0px;
+            .img-card-media {
+                object-fit: cover;
+                width: 100%;
+                height: 200px;
+                border-radius: 10px;
+            }
+            figcaption {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: auto;
+            }
+        }
+    }
+
+    .div-container-compteur {
+        display: none;
+    }
+    video {
+        max-width: 360px;
+        width: 100%;
+    }
+}
