@@ -10,6 +10,11 @@ document.addEventListener('click', function(e) {
     }
 })
 
+/* <h1 class="form-title">
+    Contactez-moi
+    <br> Mimi Keel
+</h1> */
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
