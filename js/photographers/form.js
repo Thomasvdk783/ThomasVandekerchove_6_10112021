@@ -15,6 +15,13 @@ document.addEventListener('click', function(e) {
     <br> Mimi Keel
 </h1> */
 
+fetch('../../data/apiFisheye.json')
+    .then(resPhotographers => resPhotographers.json())
+    .then(data => {
+        const idPhotographer = window.location.search.split('id=')[1];
+    })
+
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
