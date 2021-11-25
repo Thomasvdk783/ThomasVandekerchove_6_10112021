@@ -18,7 +18,15 @@ document.addEventListener('click', function(e) {
 fetch('../../data/apiFisheye.json')
     .then(resPhotographers => resPhotographers.json())
     .then(data => {
-        const idPhotographer = window.location.search.split('id=')[1];
+        let photographersData = data.photographers;
+        let sectionPhotographerProfil = document.getElementById('photographersProfil');
+        const id = window.location.search.split('id=')[1];
+        const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
+        const templatePhotographersProfil = `<h1 class="form-title">
+        Contactez-moi
+        <br> ${ photographers[0].name }
+        </h1> `
+        sectionPhotographerProfil.innerHTML = templatePhotographersProfil;
     })
 
 
