@@ -4,8 +4,10 @@
 
 // Photographers Page //
 import PhotographerProfil from './photographers/profil.js';
-import Lightbox from './photographers/Lightbox.js';
+import Lightbox from './photographers/Lightbox.js'
 
+let numberLikesTotal = 0
+const numberLikeTotalTag = document.getElementById('totalNumbersLikes');
 
 function showMediaTags(medias) {
     const mediaContainerTag = document.getElementById("contentMedia");
@@ -27,6 +29,7 @@ function showMediaTags(medias) {
 fetch('../../data/apiFisheye.json')
     .then(response => response.json())
     .then(data => {
+        const mediaContainerTag = document.getElementById("contentMedia");
         const id = window.location.search.split('id=')[1];
         const media = data.media;
         const photographerMedia = media.filter(media => media.photographerId == id);
@@ -80,8 +83,36 @@ fetch('../../data/apiFisheye.json')
                 }
             }
         }
+        
+        for (let media of photographerMedia) {
+            mediaContainerTag.innerHTML += `<article class="card-media card-1">
+            <figure>
+                <a href="">${ MediaFactory.generateMediaTag(media) }</a>
+                <figcaption>
+                    <p>${media.title}</p>
+                    <span class="likes">${media.likes}<i class="fas fa-heart"></i></span>
+                </figcaption>
+            </figure>
+        </article>`
+            numberLikesTotal += media.likes
+            numberLikeTotalTag.innerText = numberLikesTotal
+        }
         Lightbox.init();
     });
+
+
+
+
+
+document.addEventListener('click', function(e) {
+    if (e.target.className == 'likes') {
+        let number = parseInt(e.target.innerText);
+        numberLikesTotal++;
+        numberLikeTotalTag.innerText = numberLikesTotal;
+        number++;
+        e.target.innerHTML = `${number}<i class="fas fa-heart"></i>`;
+    }
+});
 
 class MediaFactory {
     static generateMediaTag(media) {
