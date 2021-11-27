@@ -38,10 +38,10 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- medias content -->
         <section id="contentMedia" class="container-media">
-            
+
         </section>
         <!-- container lightbox -->
 
@@ -49,8 +49,8 @@
         <div class="div-container-compteur">
             <section class="container-compteur-likes">
                 <article class="box-compteur">
-                    <p id="totalNumbersLikes">
-                        297 081 <i id="like" class="fas fa-heart"></i>
+                    <p>
+                        <span id="totalNumbersLikes"></span> <i id="like" class="fas fa-heart"></i>
                     </p>
                     <p>
                         300€ / jour
@@ -59,14 +59,14 @@
             </section>
         </div>
         <!-- Formulaire de contact -->
-        <div class="bground">
+        <div class="bground" id="form-modal">
             <section class="content">
                 <span class="btn-close"></span>
                 <article id="form" class="contact-form">
                     <form name="contact" action="photographers.html" method="get" onsubmit="return validate(event);" id="myForm">
                         <h1 class="form-title">
                             Contactez-moi
-                            <br> Mimi Keel
+                            <br> <span id="photographer-name">Mimi Keel</span>
                         </h1>
                         <div class="formData">
                             <label for="first-name">Prénom </label><br>
