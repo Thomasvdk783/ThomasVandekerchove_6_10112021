@@ -1,19 +1,19 @@
-//// Lightbox script js //// 
+//// Lightbox script js ////
 
 
 export default class Lightbox {
 
     static init() {
         const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".mp4"]'))
-        const gallery = links.map(link => link.getAttribute('href'))   
+        const gallery = links.map(link => link.getAttribute('href'))
         links.forEach(link => link.addEventListener('click', e => {
-                e.preventDefault()
-                new Lightbox(e.currentTarget.getAttribute('href'), gallery)
-            }))
+            e.preventDefault()
+            new Lightbox(e.currentTarget.getAttribute('href'), gallery)
+        }))
     }
 
     /**
-     * @param {string[]} images Chemins des images de lightbox 
+     * @param {string[]} images Chemins des images de lightbox
      */
 
     constructor(url, images) {
@@ -28,25 +28,25 @@ export default class Lightbox {
     //
     // load image
     //
-    loadImage (url) {
-        this.url = null
-        const image = new Image()
-        const container = this.element.querySelector('.lightbox__container')
-        const loader = document.createElement('div')
-        loader.classList.add('.lightbox__loader')
-        container.innerHTML = ''
-        container.appendChild(loader)
-        image.onload =  () => {
-            container.removeChild(loader)
-            container.appendChild(image)
-            this.url = url
+    loadImage(url) {
+            this.url = null
+            const image = new Image()
+            const container = this.element.querySelector('.lightbox__container')
+            const loader = document.createElement('div')
+            loader.classList.add('.lightbox__loader')
+            container.innerHTML = ''
+            container.appendChild(loader)
+            image.onload = () => {
+                container.removeChild(loader)
+                container.appendChild(image)
+                this.url = url
+            }
+            image.src = url
         }
-        image.src = url
-    }
-    /**
-     * 
-     * @param {KeyboardEvent} e 
-     */
+        /**
+         *
+         * @param {KeyboardEvent} e
+         */
     onKeyUp(e) {
         if (e.key === 'Escape') {
             this.close(e)
@@ -54,11 +54,11 @@ export default class Lightbox {
             this.prev(e)
         } else if (e.key === 'ArrowRight') {
             this.next(e)
-        } 
+        }
     }
-  
-     /**
-     * 
+
+    /**
+     *
      * @param {MouseEvent/KeyboardEvent} e
      *
      */
@@ -72,25 +72,25 @@ export default class Lightbox {
     }
 
     /**
-     * 
+     *
      * @param {MouseEvent/KeyboardEvent} e
      *
      */
-    next (e) {
+    next(e) {
         e.preventDefault()
         let i = this.images.findIndex(image => image === this.url)
-        if (i === this.images.length - 1){
+        if (i === this.images.length - 1) {
             i = -1
         }
         this.loadImage(this.images[i + 1])
     }
 
-      /**
-     * 
+    /**
+     *
      * @param {MouseEvent/KeyboardEvent} e
      *
      */
-       prev (e) {
+    prev(e) {
         e.preventDefault()
         let i = this.images.findIndex(image => image === this.url)
         if (i === 0) {
@@ -113,4 +113,4 @@ export default class Lightbox {
     }
 }
 
-Lightbox.init()
+// Lightbox.init()
