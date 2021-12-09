@@ -28,14 +28,11 @@
                 Trier par
             </p>
             <div class="dropdown">
-                <button class="dropbtn" id="dropdown-button">
-                  <a class="sort" href="#">Popularité</a>
-                  <img src="./medias/arrow-drop-btn.svg" alt="">
-                </button>
-                <div class="dropdown-content" id="myDropdown">
-                    <a class="sort" href="#">Date</a>
-                    <a class="sort" href="#">Titre</a>
-                </div>
+                <select name="dropdown" id="dropdown-menu" class="dropbtn">
+                  <option class="sort" value="popularity">Popularité</option>
+                  <option class="sort" value="date">Date</option>
+                  <option class="sort" value="title">Titre</option>
+              </select>
             </div>
         </section>
 
@@ -63,33 +60,33 @@
             <section class="content">
                 <span class="btn-close"></span>
                 <article id="form" class="contact-form">
-                    <form name="contact" action="photographers.html" method="get" onsubmit="return validate(event);" id="myForm">
+                    <form name="contact" action="photographers.html" aria-labelledby="coordonnees"  method="get" onsubmit="return validate(event);" id="myForm">
                         <h1 class="form-title">
                             Contactez-moi
                             <br> <span id="photographer-name">Mimi Keel</span>
                         </h1>
                         <div class="formData">
                             <label for="first-name">Prénom </label><br>
-                            <input class="text-control" type="text" id="first-name" name="first" minlength="2" /><br>
+                            <input class="text-control" tabindex="0" type="text" id="first-name" name="first" aria-labelledby="prenom" aria-describedby="prenom" minlength="2" /><br>
                             <span id="first-name-error"></span>
                         </div>
                         <div class="formData">
                             <label for="last-name">Nom </label><br>
-                            <input class="text-control" type="text" id="last-name" name="last" /><br>
+                            <input class="text-control" tabindex="1" type="text" id="last-name" name="last" aria-labelledby="nom" aria-describedby="nom" /><br>
                             <span id="last-name-error"></span>
                         </div>
                         <div class="formData">
                             <label for="email">E-mail </label><br>
-                            <input class="text-control" type="email" id="email" name="email" /><br>
+                            <input class="text-control" tabindex="2" type="email" id="email" name="email" aria-labelledby="email" aria-describedby="adresse-mail" /><br>
                             <span id="email-error"></span>
                         </div>
                         <div class="formData">
                             <label for="text">Votre message </label><br>
-                            <input class="votre-message" type="text" id="email" name="email" size="40" maxlength="60" /><br>
+                            <input class="votre-message" tabindex="3" type="text" id="email" name="email" size="40" maxlength="60" /><br>
                             <span id="email-error"></span>
                         </div>
                         <button class="btn-submit" type="button" id="btn-submit">
-                            <input class="submit" type="submit" value="Envoyer">
+                            <input class="submit" tabindex="4" type="submit" value="Envoyer">
                         </button>
                     </form>
                 </article>
@@ -99,9 +96,7 @@
 
     </main>
 </body>
-<script type="module" src="../../js/photographers/lightbox.js"></script>
 <script type="module" src="../../js/photographers/form.js"></script>
-<script type="module" src="../../js/photographers/dropdown.js"></script>
 <script type="module" src="../../js/photographer.js" defer></script>
 
 </html>
