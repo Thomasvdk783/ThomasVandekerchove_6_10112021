@@ -22,6 +22,8 @@ function showMediaTags(medias) {
                 </figcaption>
             </figure>
         </article>`
+        numberLikesTotal += media.likes
+        numberLikeTotalTag.innerText = numberLikesTotal
     }
 }
 
@@ -39,35 +41,29 @@ fetch('../../data/apiFisheye.json')
 
         /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
-        const dropdownButton = document.getElementById('dropdown-button');
-        dropdownButton.addEventListener('click', function() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        })
-
-        const dropdownLinks = document.querySelectorAll('.dropdown a');
-        dropdownLinks.forEach(element => {
-            element.addEventListener('click', function(e) {
-                let mediaArraySorted;
-                let sortValue = e.target.dataset.sort;
-                if (sortValue == 'popularity') {
-                    mediaArraySorted = media.sort((a, b) => { // SORT BY POPULARITY
-                        return b.likes - a.likes
-                    })
-                } else if (sortValue == 'date') {
-                    mediaArraySorted = media.sort((a, b) => { // SORT BY DATE
-                        return new Date(a.date).valueOf() - new Date(b.date).valueOf();
-                    })
-                } else {
-                    mediaArraySorted = media.sort((a, b) => { // SORT BY TITLE
-                        if (a.title.toLowerCase() < b.title.toLowerCase()) {
-                            return -1;
-                        } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
-                            return 1;
-                        }
-                    })
-                }
-                showMediaTags(mediaArraySorted.filter(media => media.photographerId == id));
-            });
+        const dropdown = document.getElementById('dropdown-menu')
+        dropdown.addEventListener('change', function(e) {
+            let mediaArraySorted;
+            let value = dropdown.value;
+            if (value == 'popularity') {
+                mediaArraySorted = media.sort((a, b) => { // SORT BY POPULARITY
+                    return b.likes - a.likes
+                })
+            } else if (value == 'date') {
+                mediaArraySorted = media.sort((a, b) => { // SORT BY DATE
+                    return new Date(a.date).valueOf() - new Date(b.date).valueOf();
+                })
+            } else {
+                mediaArraySorted = media.sort((a, b) => { // SORT BY TITLE
+                    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                        return -1;
+                    } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                        return 1;
+                    }
+                })
+            }
+            showMediaTags(mediaArraySorted.filter(media => media.photographerId == id));
+            Lightbox.init();
         })
 
         // Close the dropdown menu if the user clicks outside of it
@@ -83,20 +79,7 @@ fetch('../../data/apiFisheye.json')
                 }
             }
         }
-        
-        for (let media of photographerMedia) {
-            mediaContainerTag.innerHTML += `<article class="card-media card-1">
-            <figure>
-                <a href="">${ MediaFactory.generateMediaTag(media) }</a>
-                <figcaption>
-                    <p>${media.title}</p>
-                    <span class="likes">${media.likes}<i class="fas fa-heart"></i></span>
-                </figcaption>
-            </figure>
-        </article>`
-            numberLikesTotal += media.likes
-            numberLikeTotalTag.innerText = numberLikesTotal
-        }
+
         Lightbox.init();
     });
 
