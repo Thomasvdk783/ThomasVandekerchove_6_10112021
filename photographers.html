@@ -28,22 +28,22 @@
                 Trier par
             </p>
             <div class="dropdown">
-                <select name="dropdown" id="dropdown-menu" class="dropbtn">
-                  <option class="sort" value="popularity">Popularité</option>
-                  <option class="sort" value="date">Date</option>
-                  <option class="sort" value="title">Titre</option>
+                <select aria-haspopup="listbox" role="listbox" name="dropdown" id="dropdown-menu" class="dropbtn">
+                  <option class="sort" role='option' value="popularity">Popularité</option>
+                  <option class="sort" role='option' value="date">Date</option>
+                  <option class="sort" role='option' value="title">Titre</option>
               </select>
             </div>
         </section>
 
         <!-- medias content -->
-        <section id="contentMedia" class="container-media">
+        <section id="contentMedia" aria-label='photographer works' class="container-media">
 
         </section>
         <!-- container lightbox -->
 
         <!-- Compteur de likes -->
-        <div class="div-container-compteur">
+        <div class="div-container-compteur" aria-label="photographer likes and price">
             <section class="container-compteur-likes">
                 <article class="box-compteur">
                     <p>
@@ -60,7 +60,8 @@
             <section class="content">
                 <span class="btn-close"></span>
                 <article id="form" class="contact-form">
-                    <form name="contact" action="photographers.html" aria-labelledby="coordonnees"  method="get" onsubmit="return validate(event);" id="myForm">
+                    <form role="dialog" name="contact" action="photographers.html" aria-labelledby="coordonnees" aria-label="formulaire de contact"
+             method="get" onsubmit="return validate(event);" id="myForm">
                         <h1 class="form-title">
                             Contactez-moi
                             <br> <span id="photographer-name">Mimi Keel</span>
