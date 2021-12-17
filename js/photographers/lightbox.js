@@ -16,10 +16,11 @@ export default class Lightbox {
      * @param {string[]} images Chemins des images de lightbox
      */
 
-    constructor(url, images) {
+    constructor(url, images, videos) {
         this.element = this.buildDOM(url)
         this.images = images
-        this.loadImage(url)
+        this.videos = videos
+        this.loadMedia(url)
         this.oneKeyUp = this.onKeyUp.bind(this)
         document.body.appendChild(this.element)
         document.addEventListener('keyup', this.onKeyUp.bind(this))
@@ -28,20 +29,20 @@ export default class Lightbox {
     //
     // load image
     //
-    loadImage(url) {
+    loadMedia(url) {
             this.url = null
-            const image = new Image()
+            const media = new Image()
             const container = this.element.querySelector('.lightbox__container')
             const loader = document.createElement('div')
             loader.classList.add('.lightbox__loader')
             container.innerHTML = ''
             container.appendChild(loader)
-            image.onload = () => {
+            media.onload = () => {
                 container.removeChild(loader)
-                container.appendChild(image)
+                container.appendChild(media)
                 this.url = url
             }
-            image.src = url
+            media.src = url
         }
         /**
          *
@@ -82,7 +83,7 @@ export default class Lightbox {
         if (i === this.images.length - 1) {
             i = -1
         }
-        this.loadImage(this.images[i + 1])
+        this.loadMedia(this.images[i + 1])
     }
 
     /**
@@ -96,7 +97,7 @@ export default class Lightbox {
         if (i === 0) {
             i = this.images.length
         }
-        this.loadImage(this.images[i - 1])
+        this.loadMedia(this.images[i - 1])
     }
 
     buildDOM(url) {
@@ -113,4 +114,3 @@ export default class Lightbox {
     }
 }
 
-// Lightbox.init()
