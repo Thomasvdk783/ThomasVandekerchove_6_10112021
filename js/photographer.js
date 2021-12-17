@@ -10,6 +10,7 @@ let numberLikesTotal = 0
 const numberLikeTotalTag = document.getElementById('totalNumbersLikes');
 
 function showMediaTags(medias) {
+    numberLikesTotal = 0;
     const mediaContainerTag = document.getElementById("contentMedia");
     mediaContainerTag.innerHTML = ''
     for (let media of medias) {
