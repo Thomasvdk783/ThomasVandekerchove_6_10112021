@@ -29,20 +29,38 @@ export default class Lightbox {
     //
     // load image
     //
+
+
+
+
     loadMedia(url) {
+            const extUrl = url.split('.').pop()
             this.url = null
-            const media = new Image()
-            const container = this.element.querySelector('.lightbox__container')
-            const loader = document.createElement('div')
-            loader.classList.add('.lightbox__loader')
-            container.innerHTML = ''
-            container.appendChild(loader)
-            media.onload = () => {
-                container.removeChild(loader)
-                container.appendChild(media)
-                this.url = url
+            if(extUrl !== 'mp4'){
+                const media = new Image()
+                const container = this.element.querySelector('.lightbox__container')
+                const loader = document.createElement('div')
+                loader.classList.add('.lightbox__loader')
+                container.innerHTML = ''
+                container.appendChild(loader)
+                media.onload = () => {
+                    container.removeChild(loader)
+                    container.appendChild(media)
+                    this.url = url
+                }
+                media.src = url
             }
-            media.src = url
+            else{
+                const mediaVideo = document.createElement('video')
+                const container = this.element.querySelector('.lightbox__container')
+                container.innerHTML = ''
+                mediaVideo.setAttribute('src', url)
+                mediaVideo.setAttribute('height', '500')
+                mediaVideo.setAttribute('width', '700')
+                mediaVideo.setAttribute('controls', 'controls')
+                mediaVideo.setAttribute('autoplay', 'true')
+                container.appendChild(mediaVideo)
+            }
         }
         /**
          *
@@ -80,10 +98,14 @@ export default class Lightbox {
     next(e) {
         e.preventDefault()
         let i = this.images.findIndex(image => image === this.url)
-        if (i === this.images.length - 1) {
-            i = -1
+        console.log(i)
+        if (i === this.images.length -1) {
+            i = 0
+        }else{
+            i++
         }
-        this.loadMedia(this.images[i + 1])
+        this.loadMedia(this.images[i])
+        console.log(this.images)
     }
 
     /**
