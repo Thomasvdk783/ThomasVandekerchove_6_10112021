@@ -21,13 +21,12 @@ export default class PhotographerProfil {
                         </div>
                     </section>
                     <section class="section2-banner-profil-photographer">
-                        <p class="p1">
+                        <p class="p1" alt="">
                         ${ photographers[0].city }, ${ photographers[0].country }
                         </p>
                         <p class="p2" alt="intro photographer : ${ photographers[0].tagline }">
                         ${ photographers[0].tagline }
                         </p>
-                        <ul id="photographersTagsProfil-${ photographers[0].id }" class="ul-tag-profil-page"></ul>
                     </section>
                 </section>
                 <section class="container-banner-profil-2">
