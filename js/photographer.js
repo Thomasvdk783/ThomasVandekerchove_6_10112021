@@ -19,7 +19,7 @@ function showMediaTags(medias) {
                 <a href="${ MediaFactory.generateMediaURL(media) }" class="media-item">${ MediaFactory.generateMediaTag(media) }</a>
                 <figcaption>
                     <p>${media.title}</p>
-                    <span class="likes">${media.likes}<i class="fas fa-heart"></i></span>
+                    <i class="likes fas fa-heart" tabindex="0"><span class="">${media.likes}</span></i>
                 </figcaption>
             </figure>
         </article>`
@@ -86,16 +86,19 @@ fetch('../../data/apiFisheye.json')
 
 
 
-
-
 document.addEventListener('click', function(e) {
     if (e.target.className == 'likes') {
         let number = parseInt(e.target.innerText);
         numberLikesTotal++;
         numberLikeTotalTag.innerText = numberLikesTotal;
         number++;
-        e.target.innerHTML = `${number}<i class="fas fa-heart"></i>`;
+        e.target.innerHTML = `${number}<i class="fas fa-heart" tabindex="0"></i>`;
     }
+    // onKeyUp(e){
+    //     if(!e.key == 'Enter'){
+    //         this.
+    //     }
+    // }
 });
 
 class MediaFactory {

@@ -43,6 +43,7 @@ export default class Lightbox {
                 loader.classList.add('.lightbox__loader')
                 container.innerHTML = ''
                 container.appendChild(loader)
+                media.setAttribute('alt', 'ok')
                 media.onload = () => {
                     container.removeChild(loader)
                     container.appendChild(media)
@@ -55,6 +56,7 @@ export default class Lightbox {
                 const container = this.element.querySelector('.lightbox__container')
                 container.innerHTML = ''
                 mediaVideo.setAttribute('src', url)
+                mediaVideo.setAttribute('alt', 'ok')
                 mediaVideo.setAttribute('height', '500')
                 mediaVideo.setAttribute('width', '700')
                 mediaVideo.setAttribute('controls', 'controls')
