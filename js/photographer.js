@@ -92,7 +92,7 @@ document.addEventListener('click', function(e) {
         numberLikesTotal++;
         numberLikeTotalTag.innerText = numberLikesTotal;
         number++;
-        e.target.innerHTML = `${number}<i class="fas fa-heart" tabindex="0"></i>`;
+        e.target.innerHTML = `${number}<i role="add-like" class="fas fa-heart" tabindex="0"></i>`;
     }
     // onKeyUp(e){
     //     if(!e.key == 'Enter'){

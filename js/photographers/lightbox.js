@@ -127,9 +127,9 @@ export default class Lightbox {
     buildDOM(url) {
         const dom = document.createElement('div')
         dom.classList.add('lightbox')
-        dom.innerHTML = ` <button class="lightbox__close"></button>
-            <button class="lightbox__next"></button>
-            <button class="lightbox__prev"></button>
+        dom.innerHTML = ` <button class="lightbox__close" role="close-button"></button>
+            <button class="lightbox__next" role="next-picture" aria></button>
+            <button class="lightbox__prev" role="previous-picture"></button>
             <div class="lightbox__container"></div>`
         dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
         dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
