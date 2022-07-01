@@ -79,9 +79,13 @@ function validateCheckbox(conditionToCheck, errorTag, message) {
     }
 }
 
-function validate(e) {
-    e.preventDefault();
+const btnSubmit = document.querySelector('.submit');
+const form = document.querySelector('form');
+btnSubmit.addEventListener('click', function() {
+    validate()
+})
 
+function validate() {
     // REGEX
     const nameRegex = /^[a-zA-Z]+[a-zA-Z-]?[a-zA-Z]+$/;
     const emailRegex = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
@@ -90,10 +94,15 @@ function validate(e) {
     const isFirstNameValid = validateInput(firstNameInput, firstNameError, nameRegex, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     const isLastNameValid = validateInput(lastNameInput, lastNameError, nameRegex, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     const isEmailValid = validateInput(emailInput, emailError, emailRegex, "Veuillez vérifier que l'email est valide");
-    const isConditionValid = validateCheckbox(conditionsCheckboxInput.checked, errorConditionsCheckbox, "Vous devez vérifier que vous acceptez les termes et conditions.")
 
     // Form validation
-    if (isFirstNameValid && isLastNameValid && isEmailValid && isConditionValid) {
-        console.log("form valid");
+    if (isFirstNameValid && isLastNameValid && isEmailValid) {
+        console.log(firstNameInput.value, lastNameInput.value, emailInput.value);
+        if (getComputedStyle(modalbg).display != "none") {
+            modalbg.style.display = "none";
+        }
     }
+
+    
+    return false;
 }

@@ -151,6 +151,11 @@ video {
     object-fit: cover;
 }
 
+.like-button{
+    position: relative;
+    z-index:9999;
+}
+
 // container compteur de likes et tarif 
 
 .div-container-compteur {

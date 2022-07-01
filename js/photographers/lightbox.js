@@ -19,7 +19,7 @@ export default class Lightbox {
     constructor(url, images, videos) {
         this.element = this.buildDOM(url)
         this.images = images
-        this.videos = videos
+        this.i = images.findIndex(image => image === url)
         this.loadMedia(url)
         this.oneKeyUp = this.onKeyUp.bind(this)
         document.body.appendChild(this.element)
@@ -97,16 +97,18 @@ export default class Lightbox {
      * @param {MouseEvent/KeyboardEvent} e
      *
      */
+
+    
     next(e) {
         e.preventDefault()
-        let i = this.images.findIndex(image => image === this.url)
-        console.log(i)
-        if (i === this.images.length -1) {
-            i = 0
+        
+        console.log('next', this.i, this.images.length -1, this.url)
+        if (this.i === this.images.length -1) {
+            this.i = 0
         }else{
-            i++
+            this.i++
         }
-        this.loadMedia(this.images[i])
+        this.loadMedia(this.images[this.i])
         console.log(this.images)
     }
 
@@ -117,11 +119,14 @@ export default class Lightbox {
      */
     prev(e) {
         e.preventDefault()
-        let i = this.images.findIndex(image => image === this.url)
-        if (i === 0) {
-            i = this.images.length
+        console.log('prev', this.i)
+        if (this.i === 0) {
+            this.i = this.images.length -1
         }
-        this.loadMedia(this.images[i - 1])
+        else{
+            this.i--
+        }
+        this.loadMedia(this.images[this.i])
     }
 
     buildDOM(url) {
