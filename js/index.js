@@ -1,10 +1,10 @@
 'use strict';
 
 // Data //
-import ApiFishEye from './provider/ApiFishEye.js';
+import ApiFishEye from '../../provider/ApiFishEye.js';
 
 // HOMEPAGE //
-import HomePageBuilder from './home/HomePageBuilder.js';
+import HomePageBuilder from '../../home/HomePageBuilder.js';
 
 
 
